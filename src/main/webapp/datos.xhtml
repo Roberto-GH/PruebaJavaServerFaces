@@ -1,0 +1,55 @@
+<!-- <?xml version="1.0" encoding="ISO-8859-1" ?> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+   <title>Pagina de confirmacion</title>
+</h:head>
+
+<body>
+   <h1>Bienvenido #{personaBean.nombre}</h1>
+   <h:form>   
+      <h:panelGrid columns="2">
+      
+         <h:outputLabel value="Nombre " for="nombre"></h:outputLabel>
+         <h:outputText class="form-control" value="#{personaBean.nombre}" id="nombre" style="width:350px;"></h:outputText>
+         
+         <h:outputLabel value="Edad " for="edad"></h:outputLabel>
+         <h:outputText class="form-control" value="#{personaBean.edad}" id="edad" style="width:350px;"></h:outputText>
+         
+         <h:outputLabel value="Descripcion " for="descripcion"></h:outputLabel>
+         <h:inputTextarea class="form-control" value="#{personaBean.descripcion}" id="descripcion" style="height:77px; width:350px;"></h:inputTextarea>
+         
+         <h:outputLabel value="Dia actual " for="dia"></h:outputLabel>
+         <h:outputText value="#{personaBean.dia}" id="dia" style="width:350px;"></h:outputText>     
+             
+         <h:outputLabel value="Genero " for="genero"></h:outputLabel>
+         <h:outputText value="#{personaBean.genero}" id="genero"></h:outputText>
+         
+         <h:outputLabel value="Idioma " for="idioma"></h:outputLabel>   
+         <h:panelGroup>
+            <ul>
+               <ui:repeat var="idioma" value="#{personaBean.idioma}">
+                  <li>#{idioma}</li>
+               </ui:repeat>
+            </ul>        
+         </h:panelGroup> 
+                 
+         <h:outputLabel value="Profesion " for="profesion"></h:outputLabel>
+         <h:panelGroup>
+            <ul>
+               <ui:repeat var="prof" value="#{personaBean.profesionSeleccionada}">
+                  <li>#{prof}</li>
+               </ui:repeat>
+            </ul>        
+         </h:panelGroup> 
+         
+      </h:panelGrid>      
+   </h:form>   
+</body>
+</html>

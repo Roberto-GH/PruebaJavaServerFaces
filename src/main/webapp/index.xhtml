@@ -1,0 +1,67 @@
+<!-- <?xml version="1.0" encoding="ISO-8859-1" ?> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></link>
+   <title>Formulario</title>
+</h:head>
+
+<body>
+   <h1>Formulario de Registro</h1>
+   <h:form>
+   <div class="card p-4 m-4" >
+      <h:panelGrid columns="2">
+      
+         <h:outputLabel value="Nombre " for="nombre"></h:outputLabel>
+         <h:inputText class="form-control" value="#{personaBean.nombre}" id="nombre" style="width:350px;"></h:inputText>
+      
+         <h:outputLabel value="Edad " for="edad"></h:outputLabel>
+         <h:inputText class="form-control" value="#{personaBean.edad}" id="edad" style="width:350px;"></h:inputText>
+         
+         <h:outputLabel value="Descripcion " for="descripcion"></h:outputLabel>
+         <h:inputTextarea class="form-control" value="#{personaBean.descripcion}" id="descripcion" style="width:350px;"></h:inputTextarea>
+         
+         <h:outputLabel value="Dia actual " for="dia"></h:outputLabel>
+         <h:selectOneMenu class="form-control" value="#{personaBean.dia}" id="dia" style="width:350px;">
+            <f:selectItem itemValue="Lunes" itemLabel="Lunes"></f:selectItem>
+            <f:selectItem itemValue="Martes" itemLabel="Martes"></f:selectItem>
+            <f:selectItem itemValue="Miercoles" itemLabel="Miercoles"></f:selectItem>
+            <f:selectItem itemValue="Jueves" itemLabel="Jueves"></f:selectItem>
+            <f:selectItem itemValue="Viernes" itemLabel="Viernes"></f:selectItem>
+            <f:selectItem itemValue="Sabado" itemLabel="Sabado"></f:selectItem>
+            <f:selectItem itemValue="Domingo" itemLabel="Domingo"></f:selectItem>
+         </h:selectOneMenu>
+         
+         <h:outputLabel value="Genero " for="genero"></h:outputLabel>
+         <h:selectOneRadio value="#{personaBean.genero}" id="genero">
+            <f:selectItem itemValue="Masculino" itemLabel="Masculino"></f:selectItem>
+            <f:selectItem itemValue="Femenino" itemLabel="Femenino"></f:selectItem>         
+         </h:selectOneRadio>
+         
+         <h:outputLabel value="Idioma " for="idioma"></h:outputLabel>
+         <h:selectManyCheckbox  value="#{personaBean.idioma}" id="idioma" layout="pageDirection">
+            <f:selectItem itemValue="Español" itemLabel="Español"></f:selectItem>
+            <f:selectItem itemValue="Ingles" itemLabel="Ingles"></f:selectItem>
+            <f:selectItem itemValue="Frances" itemLabel="Frances"></f:selectItem>    
+            <f:selectItem itemValue="Aleman" itemLabel="Aleman"></f:selectItem>            
+         </h:selectManyCheckbox>
+         
+         <h:outputLabel value="Profesion " for="profesion"></h:outputLabel>
+         <h:selectManyListbox value="#{personaBean.profesionSeleccionada}" id="profesion" style="width:350px;">
+            <f:selectItems value="#{personaBean.profesionList}"></f:selectItems>
+         </h:selectManyListbox>
+         
+      </h:panelGrid>
+      
+      <br></br>
+      <h:commandButton class="btn btn-primary" action="datos" value="Enviar" style="width:350px;"></h:commandButton> 
+      </div>
+   </h:form>   
+</body>
+</html>
